@@ -17,6 +17,6 @@ public class Feature {
 	}
 	
 	public static String header() {
-		return "acquire latch, latch acquired, latch released";
+		return "acquire latch,latch acquired,latch released";
 	}
 }
