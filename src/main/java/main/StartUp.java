@@ -1,5 +1,6 @@
 package main;
 
+import task.Task;
 import task.TaskMgr;
 import task.cputask.CpuTask;
 
@@ -7,21 +8,14 @@ public class StartUp {
 
 	public static void main(String[] args) {
 		TaskMgr taskMgr = new TaskMgr();
-		
+
 		// create 100 tasks
 		int taskNum = 100;
-		CpuTask[] tasks = new CpuTask[taskNum];
-		for (int i = 0; i < taskNum; i++) {
-			tasks[i] = new CpuTask();
-		}
-		
-		taskMgr.runTask(CpuTask.featureCollector());
-		
-		// run
-		for (int i = 0; i < taskNum; i++) {
-			taskMgr.runTask(tasks[i]);
-		}
-		
+		Task[] tasks = taskMgr.createCpuTasks(taskNum);
+
+		taskMgr.runTask(CpuTask.getFeatureCollector());
+		taskMgr.runTasks(tasks);
+
 		// 20s
 		long waitTime = 20000;
 		try {
@@ -29,7 +23,8 @@ public class StartUp {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		CpuTask.stop();
+
+		taskMgr.stopTasks();
 	}
 
 }

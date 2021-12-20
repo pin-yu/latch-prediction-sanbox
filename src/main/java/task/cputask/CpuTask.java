@@ -1,7 +1,6 @@
 package task.cputask;
 
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 import feature.Feature;
 import feature.FeatureCollector;
@@ -14,9 +13,8 @@ public class CpuTask extends Task {
 
 	private static Latch latch = new Latch();
 	private static FeatureCollector featureCollector = new FeatureCollector();
-	private static Boolean stop = false;
-	
-	public static FeatureCollector featureCollector() {
+
+	public static FeatureCollector getFeatureCollector() {
 		return featureCollector;
 	}
 
@@ -45,9 +43,5 @@ public class CpuTask extends Task {
 			sumValue(load, feature);
 			featureCollector.addFeature(feature);
 		}
-	}
-	
-	public static void stop() {
-		stop = true;
 	}
 }
