@@ -17,8 +17,8 @@ public class Latch {
 	public void lock(Feature feature) {
 		feature.setAcquirerNum(latch.getQueueLength());
 		
-		long[] maxAcquiredTime = latchMonitor.getMaxAcquiredTime();
-		feature.setMaxAcquiredTime(maxAcquiredTime[0], maxAcquiredTime[1], maxAcquiredTime[2]);
+		long[] maxAvgAcquiredTime = latchMonitor.getMaxAvgAcquiredTime();
+		feature.setMaxAvgAcquiredTime(maxAvgAcquiredTime[0], maxAvgAcquiredTime[1]);
 
 		feature.setMaxWaitingTime(latchMonitor.getMaxWaitingTime());
 		

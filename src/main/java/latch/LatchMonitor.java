@@ -24,13 +24,9 @@ public class LatchMonitor {
 		acquiredHistory.addToHistory(start, end);
 	}
 	
-	public long[] getMaxAcquiredTime() {
-		long[] maxWaitings = new long[3];
+	public long[] getMaxAvgAcquiredTime() {
+		long[] maxAvgWaitings = acquiredHistory.getMaxAvg(100);
 		
-		maxWaitings[0] = acquiredHistory.getMaxValue(10);
-		maxWaitings[1] = acquiredHistory.getMaxValue(50);
-		maxWaitings[2] = acquiredHistory.getMaxValue(100);
-		
-		return maxWaitings;
+		return maxAvgWaitings;
 	}
 }

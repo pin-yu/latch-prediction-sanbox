@@ -8,8 +8,10 @@ import latch.Latch;
 import task.Task;
 
 public class CpuTask extends Task {
-	private static final int origin = 10_000;
-	private static final int bound = 100_000_000;
+//	private static final int origin = 100_000;
+//	private static final int bound = 1_000_000;
+	private static final int origin = 1;
+	private static final int bound = 10;
 
 	private static Latch latch = new Latch();
 	private static FeatureCollector featureCollector = new FeatureCollector();

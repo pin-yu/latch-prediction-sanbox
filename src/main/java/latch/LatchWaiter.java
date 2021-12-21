@@ -14,6 +14,8 @@ public class LatchWaiter {
 			return 0;
 		}
 		return System.nanoTime() - waiters.firstKey();
+		
+		
 	}
 
 	public synchronized void rmFromWaiters(long start) {

@@ -9,15 +9,15 @@ public class StartUp {
 	public static void main(String[] args) {
 		TaskMgr taskMgr = new TaskMgr();
 
-		// create 100 tasks
-		int taskNum = 100;
+		// create 1000 tasks
+		int taskNum = 1000;
 		Task[] tasks = taskMgr.createCpuTasks(taskNum);
 
 		taskMgr.runTask(CpuTask.getFeatureCollector());
 		taskMgr.runTasks(tasks);
 
-		// 20s
-		long waitTime = 20000;
+		// 2s
+		long waitTime = 2_000;
 		try {
 			Thread.sleep(waitTime);
 		} catch (InterruptedException e) {
