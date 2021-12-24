@@ -7,6 +7,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 import task.Task;
+import writer.CsvWriter;
 
 public class FeatureCollector extends Task {
 
@@ -55,9 +56,7 @@ public class FeatureCollector extends Task {
 				
 		System.out.println("Write to " + fileName);
 		
-		FeatureSaver featureSaver = new FeatureSaver(fileName, rows);
-		featureSaver.saveToCsv();
-		
-		System.out.println("File has been written");
+		CsvWriter csvSaver = new CsvWriter(fileName);
+		csvSaver.saveList(rows);
 	}
 }

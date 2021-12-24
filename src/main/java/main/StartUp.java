@@ -1,30 +1,45 @@
 package main;
 
+import randomprocess.PoissonProcess;
+import randomprocess.RandomProcess;
+import task.AcquireLatchThenBusyWaitTask;
 import task.Task;
-import task.TaskMgr;
-import task.cputask.CpuTask;
+import task.TaskExecutor;
+import writer.CsvWriter;
 
 public class StartUp {
 
 	public static void main(String[] args) {
-		TaskMgr taskMgr = new TaskMgr();
+		final int requestPerSecond = 970;
+		final int totalTaskNum = 1_0000;
 
-		// create 1000 tasks
-		int taskNum = 1000;
-		Task[] tasks = taskMgr.createCpuTasks(taskNum);
+		TaskExecutor taskExecutor = new TaskExecutor();
+		RandomProcess rp = new PoissonProcess(requestPerSecond);
+		
+		// start a background thread to collect features
+		taskExecutor.execute(AcquireLatchThenBusyWaitTask.getFeatureCollector());
+		
+		Object[] nextArrivalIntervalHistory = new Object[totalTaskNum];
+		
+		Task task = new AcquireLatchThenBusyWaitTask();
+		for (int i = 0; i < totalTaskNum; i++) {
+			long lastArrival = System.nanoTime();
+			taskExecutor.execute(task);
 
-		taskMgr.runTask(CpuTask.getFeatureCollector());
-		taskMgr.runTasks(tasks);
+			long nextArrivalInterval = rp.nextIntervalInNano();
 
-		// 2s
-		long waitTime = 2_000;
-		try {
-			Thread.sleep(waitTime);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+			task = new AcquireLatchThenBusyWaitTask();
+
+			// let time go until nextArrivalInterval is coming
+			while (System.nanoTime() - lastArrival < nextArrivalInterval) {
+				// busy waiting
+			}
+
+			nextArrivalIntervalHistory[i] = System.nanoTime() - lastArrival;
 		}
 
-		taskMgr.stopTasks();
+		System.out.println("write poisson-arrival information for sanity check");
+		CsvWriter csvWriter = new CsvWriter("poisson-arrival.csv");
+		csvWriter.saveArray("interarrival", nextArrivalIntervalHistory);
 	}
-
 }
