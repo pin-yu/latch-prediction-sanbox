@@ -1,4 +1,4 @@
-package latch;
+package pinyu.sandbox.latch;
 
 import java.util.ArrayList;
 import java.util.List;

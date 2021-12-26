@@ -1,4 +1,4 @@
-package feature;
+package pinyu.sandbox.feature;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

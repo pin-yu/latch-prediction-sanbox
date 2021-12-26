@@ -1,4 +1,4 @@
-package feature;
+package pinyu.sandbox.feature;
 
 public class Feature {
 	private long maxAcquiredTime;

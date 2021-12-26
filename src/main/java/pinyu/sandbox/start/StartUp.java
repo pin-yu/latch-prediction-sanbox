@@ -1,11 +1,11 @@
-package main;
+package pinyu.sandbox.start;
 
-import randomprocess.PoissonProcess;
-import randomprocess.RandomProcess;
-import task.AcquireLatchThenBusyWaitTask;
-import task.Task;
-import task.TaskExecutor;
-import writer.CsvWriter;
+import pinyu.sandbox.randomprocess.PoissonProcess;
+import pinyu.sandbox.randomprocess.RandomProcess;
+import pinyu.sandbox.task.AcquireLatchThenBusyWaitTask;
+import pinyu.sandbox.task.Task;
+import pinyu.sandbox.task.TaskExecutor;
+import pinyu.sandbox.writer.CsvWriter;
 
 public class StartUp {
 

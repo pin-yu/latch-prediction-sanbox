@@ -1,4 +1,4 @@
-package latch;
+package pinyu.sandbox.latch;
 
 public class LatchMonitor {
 	private LatchAcquiredHistory acquiredHistory = new LatchAcquiredHistory();

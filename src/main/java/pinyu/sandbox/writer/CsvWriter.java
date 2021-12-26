@@ -1,4 +1,4 @@
-package writer;
+package pinyu.sandbox.writer;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;

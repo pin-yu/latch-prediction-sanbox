@@ -1,4 +1,4 @@
-package feature;
+package pinyu.sandbox.feature;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-import task.Task;
-import writer.CsvWriter;
+import pinyu.sandbox.task.Task;
+import pinyu.sandbox.writer.CsvWriter;
 
 public class FeatureCollector extends Task {
 

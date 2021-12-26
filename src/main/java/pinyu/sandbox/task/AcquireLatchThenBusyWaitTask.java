@@ -1,10 +1,10 @@
-package task;
+package pinyu.sandbox.task;
 
-import feature.Feature;
-import feature.FeatureCollector;
-import latch.Latch;
-import randomprocess.PoissonProcess;
-import randomprocess.RandomProcess;
+import pinyu.sandbox.feature.Feature;
+import pinyu.sandbox.feature.FeatureCollector;
+import pinyu.sandbox.latch.Latch;
+import pinyu.sandbox.randomprocess.PoissonProcess;
+import pinyu.sandbox.randomprocess.RandomProcess;
 
 public class AcquireLatchThenBusyWaitTask extends Task {
 	private static int servingRate = 1000;

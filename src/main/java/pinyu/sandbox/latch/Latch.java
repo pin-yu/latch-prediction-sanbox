@@ -1,8 +1,8 @@
-package latch;
+package pinyu.sandbox.latch;
 
 import java.util.concurrent.locks.ReentrantLock;
 
-import feature.Feature;
+import pinyu.sandbox.feature.Feature;
 
 public class Latch {
 	private final ReentrantLock latch;

@@ -1,4 +1,4 @@
-package randomprocess;
+package pinyu.sandbox.randomprocess;
 
 public class PoissonProcess implements RandomProcess {
 	private static long secondToNano = 1_000_000_000;
