@@ -1,4 +1,4 @@
-package pinyu.sandbox.writer;
+package pinyu.sandbox.collector.csv;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -13,14 +13,8 @@ public class CsvWriter {
 	}
 
 	public void saveList(List<String> rows) {
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
-			for (String row : rows)
-				writer.append(row + "\n");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		System.out.println(fileName + " has been saved");
+		Object[] arrayRows = rows.toArray();
+		saveArray(arrayRows);
 	}
 
 	public void saveArray(Object[] rows) {

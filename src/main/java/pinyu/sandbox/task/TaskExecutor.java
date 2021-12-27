@@ -15,24 +15,4 @@ public class TaskExecutor {
 	public void execute(Task task) {
 		executor.execute(task);
 	}
-
-//	public void runTasks(Task[] tasks) {
-//		for (Task t : tasks) {
-//			runTask(t);
-//		}
-//	}
-//
-//	public Task[] createCpuTasks(int taskNum) {
-//		CpuTask[] tasks = new CpuTask[taskNum];
-//
-//		for (int i = 0; i < taskNum; i++) {
-//			tasks[i] = new CpuTask();
-//		}
-//
-//		return tasks;
-//	}
-//
-//	public void stopTasks() {
-//		Task.stop();
-//	}
 }

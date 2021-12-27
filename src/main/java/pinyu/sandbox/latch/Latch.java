@@ -1,39 +1,32 @@
 package pinyu.sandbox.latch;
 
+import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.ReentrantLock;
 
-import pinyu.sandbox.feature.Feature;
+import pinyu.sandbox.latch.context.LatchContext;
+import pinyu.sandbox.latch.feature.LatchFeature;
 
 public class Latch {
 	private final ReentrantLock latch;
-
-	// TODO: implement a queue
-	private static LatchMonitor latchMonitor = new LatchMonitor();
+	private final AtomicLong serialNumber = new AtomicLong();
 
 	public Latch() {
 		latch = new ReentrantLock();
 	}
 
-	public void lock(Feature feature) {
-		feature.setAcquirerNum(latch.getQueueLength());
-		
-		long[] maxAvgAcquiredTime = latchMonitor.getMaxAvgAcquiredTime();
-		feature.setMaxAvgAcquiredTime(maxAvgAcquiredTime[0], maxAvgAcquiredTime[1]);
+	public void lock(LatchContext currentContext) {
+		currentContext.setTimeBeforeLock();
+		currentContext.setSerialNumberBeforeLock(serialNumber.get());
+		currentContext.setWaitingQueueLength(latch.getQueueLength());
 
-		feature.setMaxWaitingTime(latchMonitor.getMaxWaitingTime());
-		
-		long start = feature.setAcquireLatchTime();
-		latchMonitor.addToWaiters(start);
-		
 		latch.lock();
-		
-		long end = feature.setLatchAcquiredTime();
-		latchMonitor.rmFromWaiters(start);
-		latchMonitor.addToAcquiredHistory(start, end);
+		currentContext.setTimeAfterLock();
+		currentContext.setSerialNumberAfterLock(serialNumber.get());
 	}
 
-	public void unLock(Feature feature) {
+	public void unLock(LatchContext currentContext) {
 		latch.unlock();
-		feature.setLatchReleasedTime();
+		serialNumber.incrementAndGet();
+		currentContext.setTimeAfterUnlock();
 	}
 }

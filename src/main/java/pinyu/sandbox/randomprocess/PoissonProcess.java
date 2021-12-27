@@ -22,4 +22,17 @@ public class PoissonProcess implements RandomProcess {
 
 		return nextIntervalInNano;
 	}
+
+	public void busyWait(long lastTimestamp) {
+		long nextInterval = nextIntervalInNano();
+
+		// let time go until nextArrivalInterval passes
+		long hasElapsed = System.nanoTime() - lastTimestamp;
+
+		while (hasElapsed < nextInterval) {
+			hasElapsed = System.nanoTime() - lastTimestamp;
+
+			// busy waiting
+		}
+	}
 }
