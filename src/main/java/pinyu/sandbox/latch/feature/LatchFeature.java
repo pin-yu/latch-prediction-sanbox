@@ -17,11 +17,11 @@ public class LatchFeature implements CsvRow {
 	}
 
 	public String toHeader() {
-		return historyFeaturesHeader + "," + currentFeatureHeader;
+		return historyFeaturesHeader + currentFeatureHeader;
 	}
 
 	public String toRow() {
 
-		return historyFeaturesRow + "," + currentFeatureRow;
+		return historyFeaturesRow + currentFeatureRow;
 	}
 }
