@@ -12,7 +12,7 @@ The system can be seen as a M/M/1 model in queuing theory. However, the serving 
   - Generate tasks at certain times.
   - The interval between two tasks follows ***Exponential Distribution*** with a given arrival rate.
 - Task executor
-  - The executor, is simply a thread pool, acts like a queue with fixed size 1000.
+  - The executor, simply a thread pool, acts like a queue with fixed size 1000.
   - Tasks will be put into the executor.
 - Task
   - Acquire a lock, do busy wait, then release lock.
