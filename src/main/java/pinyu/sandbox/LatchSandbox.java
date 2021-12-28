@@ -24,7 +24,7 @@ public class LatchSandbox {
 		System.out.println("Total tasks: " + TOTAL_TASKS);
 		System.out.println("Arrival rate (task/sec): " + ARRIVAL_RATE);
 		System.out.println("Serving rate (task/sec): " + SERVING_RATE);
-		System.out.println("Ideal stationary waiters in queue: " + stationaryWaitersInQueue());
+		System.out.println("Expected number of waiters in the queue: " + stationaryWaitersInQueue());
 		System.out.println("============================================================");
 	}
 
