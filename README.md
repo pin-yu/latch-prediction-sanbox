@@ -29,12 +29,20 @@ This section explains how to adjust the parameters.
   - Define how many tasks will be served in a second.
 
 The ratio of arrival rate and serving rate determines rho.
-The stationary waiters in the queue can be defined as ```rho^2 / (1 - rho)```.
+The stationary waiters in the queue can be defined as
+```
+rho^2 / (1 - rho)
+```
 
 | Parameter sets | Default |
-| ------------- |:-------------:|
-| Arrival Rate | 4500 |
-| Serving Rate | 5000 |
-| rho | 0.9 |
-| Staionary waiters in a queue | 8 |
-| Total tasks | 100_000 |
+| ------------- |:-------------:|:-------------:|
+| Arrival Rate | 4500 | 4900 |
+| Serving Rate | 5000 | 5000 |
+| rho | 0.9 | 0.98 |
+| Staionary waiters in a queue | 8 | 48 |
+| Total tasks | 100_000 | 100_000 |
+| Avg lock waiting time | 3000 us | 3000 us |
+
+***I recommand using at least 5000 for serving rate. Otherwise, the lock waiting time will be too long. (might be larger than 100 ms)***
+
+
