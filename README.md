@@ -34,7 +34,7 @@ The stationary waiters in the queue can be defined as
 rho^2 / (1 - rho)
 ```
 
-| Parameter sets | Default |
+| Parameter sets | Set1 | Set2 |
 | ------------- |:-------------:|:-------------:|
 | Arrival Rate | 4500 | 4900 |
 | Serving Rate | 5000 | 5000 |
