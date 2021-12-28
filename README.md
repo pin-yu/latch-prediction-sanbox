@@ -36,13 +36,12 @@ rho^2 / (1 - rho)
 
 | Parameter sets | Set1 | Set2 |
 | ------------- |:-------------:|:-------------:|
+| Total tasks | 100_000 | 100_000 |
 | Arrival Rate | 4500 | 4900 |
 | Serving Rate | 5000 | 5000 |
 | rho | 0.9 | 0.98 |
 | Expected number of waiters in the queue | 8 | 48 |
 | Expected waiting time in the queue | 1800us | 9800 us |
-| Total tasks | 100_000 | 100_000 |
-| Average lock waiting time | 3000 us | 3000 us |
 
 ***I recommend using at least 5000 for serving rate. Otherwise, the lock waiting time will be too long. (might be larger than 100 ms)***
 
