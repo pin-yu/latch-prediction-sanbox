@@ -7,10 +7,10 @@ import pinyu.sandbox.task.Task;
 import pinyu.sandbox.task.TaskExecutor;
 
 public class LatchSandbox {
-	public static final int TOTAL_TASKS = 10_000;
+	public static final int TOTAL_TASKS = 100_000;
 
-	public static final int ARRIVAL_RATE = 245;
-	public static final int SERVING_RATE = 250;
+	public static final int ARRIVAL_RATE = 4500;
+	public static final int SERVING_RATE = 5000;
 
 	public static final String CONTEXT_FILE_NAME = "latch-context.csv";
 	public static final String FEATURE_FILE_NAME = "latch-feature.csv";
