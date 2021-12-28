@@ -29,7 +29,7 @@ This section explains how to adjust the parameters.
   - Define how many tasks will be served in a second.
 
 The ratio of arrival rate and serving rate determines rho.
-The stationary waiters in the queue can be defined as `rho^2 / (1 - rho)`.
+The stationary waiters in the queue can be defined as ```rho^2 / (1 - rho)```.
 
 | Parameter sets | Default |
 | ------------- |:-------------:|
