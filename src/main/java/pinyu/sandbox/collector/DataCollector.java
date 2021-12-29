@@ -40,7 +40,7 @@ public class DataCollector extends Task {
 			rows.add(row.toRow());
 
 			int timeToFlush = 2;
-			// stop waiting if nothing is coming for 5 seconds
+			// stop waiting if nothing is coming for timeToFlush seconds
 			while ((row = queue.poll(timeToFlush, TimeUnit.SECONDS)) != null) {
 				rows.add(row.toRow());
 			}
