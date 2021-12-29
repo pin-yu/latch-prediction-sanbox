@@ -53,7 +53,7 @@ public class LatchSandbox {
 			arrivalProcess.busyWait(lastArrival);
 		}
 
-		System.out.println("Benchmarking finished, the collector is saving file");
+		System.out.println("Benchmarking finished, the collectors are saving file");
 	}
 
 	private static void addToQueue(Task task) {
