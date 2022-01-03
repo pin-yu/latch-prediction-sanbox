@@ -1,7 +1,7 @@
 package pinyu.sandbox.randomprocess;
 
 public class PoissonProcess implements RandomProcess {
-	private static long secondToNano = 1_000_000_000;
+	private final static long SECOND_TO_NANO = 1_000_000_000;
 
 	private int requestPerSecond;
 
@@ -18,7 +18,7 @@ public class PoissonProcess implements RandomProcess {
 	public long nextIntervalInNano() {
 		double u = Math.random();
 		double nextIntervalInSecond = -Math.log(u) / requestPerSecond;
-		long nextIntervalInNano = (long) (nextIntervalInSecond * secondToNano);
+		long nextIntervalInNano = (long) (nextIntervalInSecond * SECOND_TO_NANO);
 
 		return nextIntervalInNano;
 	}
