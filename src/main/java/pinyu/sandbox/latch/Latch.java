@@ -4,7 +4,6 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.ReentrantLock;
 
 import pinyu.sandbox.latch.context.LatchContext;
-import pinyu.sandbox.latch.feature.LatchFeature;
 
 public class Latch {
 	private final ReentrantLock latch;
